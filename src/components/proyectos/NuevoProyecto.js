@@ -1,6 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 const NuevoProyecto = () => {
+
+    // state nuevo proyecto
+    const [proyecto, guardarProyecto] = useState({
+        nombre: ''
+    })
+
+    // Extraer
+    const { nombre } = proyecto;
+
+    // Lee el contenido de input
+    const onChange = e => {
+        guardarProyecto({
+            ...proyecto,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+    }
+
     return (
         <Fragment>
             <button
@@ -9,13 +30,16 @@ const NuevoProyecto = () => {
             >Nuevo Proyecto</button>
 
             <form
-                className="formulario-nuevo-proyecto">
+                className="formulario-nuevo-proyecto"
+                onSubmit={onSubmit}>
                 <input
                     type="text"
                     name="nombre"
                     id="nombre"
                     className="input-text"
                     placeholder="Nombre Proyecto"
+                    value={nombre}
+                    onChange={onChange}
                 />
 
                 <input
