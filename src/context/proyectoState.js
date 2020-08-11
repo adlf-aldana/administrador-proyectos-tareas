@@ -5,7 +5,8 @@ import uuid from 'react-uuid';
 import {
     FORMULARIO_PROYECTO,
     OBTENER_PROYECTOS,
-    AGREGAR_PROYECTO
+    AGREGAR_PROYECTO,
+    MOSTRAR_ERROR
 } from '../types';
 
 const ProyectoState = props => {
@@ -18,7 +19,8 @@ const ProyectoState = props => {
 
     const initialState = {
         proyectos: [],
-        formulario: false
+        formulario: false,
+        errorformulario: false
     }
 
     // Dispatch para ejecutar las acciones
@@ -48,14 +50,23 @@ const ProyectoState = props => {
         })
     }
 
+    // Mostrando error
+    const mostrarError = () => {
+        dispatch({
+            type: MOSTRAR_ERROR
+        })
+    }
+
     return (
         <proyectoContext.Provider
             value={{
                 proyectos: state.proyectos,
                 formulario: state.formulario,
+                errorformulario: state.errorformulario,
                 mostrarFormulario,
                 obtenerProyectos,
-                agregarProyecto
+                agregarProyecto,
+                mostrarError
             }}>
             {props.children}
         </proyectoContext.Provider>
