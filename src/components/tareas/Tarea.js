@@ -9,7 +9,7 @@ const Tarea = ({ tarea }) => {
 
     // Obtener la funcion del context de tarea
     const tareasContext = useContext(TareaContext);
-    const { eliminarTarea, obtenerTareas, cambiarEstadoTarea } = tareasContext;
+    const { eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareasContext;
 
     const estadoTarea = tarea => {
         if (tarea.estado)
@@ -46,6 +46,7 @@ const Tarea = ({ tarea }) => {
                 <button
                     type="button"
                     className="btn btn-primario"
+                    onClick={() => guardarTareaActual(tarea)}
                 >Editar</button>
 
                 <button
