@@ -9,7 +9,7 @@ const FormTareas = () => {
     const { proyecto } = proyectosContext;
 
     const tareasContext = useContext(TareaContext);
-    const { tareaseleccionada, errortarea, agregarTarea, validarTarea, obtenerTareas, actualizarTarea } = tareasContext;
+    const { tareaseleccionada, errortarea, agregarTarea, validarTarea, obtenerTareas, actualizarTarea, limpiarTarea } = tareasContext;
 
     // Effect que detecta si hay una tarea seleccionada
     useEffect(() => {
@@ -57,7 +57,11 @@ const FormTareas = () => {
             tarea.estado = false
             agregarTarea(tarea);
         } else {
+            // actulizar tarea existente
             actualizarTarea(tarea)
+
+            // limpiar tarea del state
+            limpiarTarea()
         }
 
 
