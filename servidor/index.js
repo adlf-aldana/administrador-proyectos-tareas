@@ -1,8 +1,12 @@
 // importando express
 const express = require('express');
+const conectarDB = require('./config/db');
 
 // crear el servidor
 const app = express();
+
+// conectar a la base de datos
+conectarDB();
 
 // crear puerto
 const PORT = process.env.PORT || 4000;
