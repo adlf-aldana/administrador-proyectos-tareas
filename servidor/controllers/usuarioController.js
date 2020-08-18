@@ -1,4 +1,4 @@
 exports.crearUsuario = (req, res) => {
-    res.send('hola');
-    console.log('Desde usuario');
+    // res.send('hola');
+    console.log(req.body);
 }
