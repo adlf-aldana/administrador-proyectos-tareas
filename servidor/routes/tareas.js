@@ -14,4 +14,11 @@ router.post('/',
     ],
     tareaController.crearTarea
 );
+
+// Actualizar tarea
+router.put('/:id',
+    auth,
+    tareaController.actualizarTarea
+);
+
 module.exports = router;
