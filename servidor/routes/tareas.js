@@ -14,6 +14,11 @@ router.post('/',
     ],
     tareaController.crearTarea
 );
+// Obtener las tareas
+router.get('/',
+    auth,
+    tareaController.obtenerTareas
+);
 
 // Actualizar tarea
 router.put('/:id',
