@@ -18,7 +18,7 @@ const Proyecto = ({ proyecto }) => {
                 type="button"
                 className="btn btn-blank"
                 onClick={() => {
-                    proyectoActual(proyecto.id)
+                    proyectoActual(proyecto._id)
                     obtenerTareas(proyecto.id)
                 }
                 }
