@@ -51,7 +51,7 @@ exports.obtenerTareas = async (req, res) => {
         }
 
         // Obtener las tareas por proyecto
-        const tareas = await Tarea.find({ proyecto }).sort({ creado: -1});
+        const tareas = await Tarea.find({ proyecto }).sort({ creado: -1 });
         res.json({ tareas });
 
     } catch (error) {
@@ -83,12 +83,12 @@ exports.actualizarTarea = async (req, res) => {
 
         // Crea un objeto con la nueva informacion
         const nuevaTarea = {};
-        if (nombre) {
-            nuevaTarea.nombre = nombre;
-        }
-        if (estado) {
-            nuevaTarea.estado = estado;
-        }
+        // if (nombre) {
+        nuevaTarea.nombre = nombre;
+        // }
+        // if (estado) {
+        nuevaTarea.estado = estado;
+        // }
 
         // Guardar la tarea
         tareaExiste = await Tarea.findOneAndUpdate({ _id: req.params.id }, nuevaTarea, { new: true });

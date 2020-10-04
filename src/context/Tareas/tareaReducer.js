@@ -27,10 +27,10 @@ export default (state, action) => {
                 tareasproyecto: state.tareasproyecto.filter(tarea => tarea._id !== action.payload)
             }
         case ACTUALIZAR_TAREA:
-        case ESTADO_TAREA:
+        // case ESTADO_TAREA:
             return {
                 ...state,
-                estado: state.tareasproyecto.map(tarea => tarea.id === action.payload.id ? action.payload : tarea),
+                tareasproyecto: state.tareasproyecto.map(tarea => tarea._id === action.payload._id ? action.payload : tarea),
                 // 1ra forma para limpiar la tarea seleccionada
                 //tareaseleccionada: null
             }

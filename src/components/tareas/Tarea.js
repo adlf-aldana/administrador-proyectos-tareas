@@ -9,14 +9,14 @@ const Tarea = ({ tarea }) => {
 
     // Obtener la funcion del context de tarea
     const tareasContext = useContext(TareaContext);
-    const { eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareasContext;
+    const { eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActual } = tareasContext;
 
     const estadoTarea = tarea => {
         if (tarea.estado)
             tarea.estado = false
         else
             tarea.estado = true
-        cambiarEstadoTarea(tarea);
+        actualizarTarea(tarea);
     }
 
     return (
