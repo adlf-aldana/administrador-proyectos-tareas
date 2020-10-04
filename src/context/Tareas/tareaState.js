@@ -4,7 +4,7 @@ import TareaReducer from './tareaReducer';
 // import uuid from 'react-uuid';
 import clienteAxios from '../../config/axios';
 
-import { TAREAS_PROYECTO, AGREGAR_TAREA, VALIDAR_TAREA, ELIMINAR_TAREA, ESTADO_TAREA, TAREA_ACTUAL, ACTUALIZAR_TAREA, LIMPIAR_TAREA } from '../../types';
+import { TAREAS_PROYECTO, AGREGAR_TAREA, VALIDAR_TAREA, ELIMINAR_TAREA, TAREA_ACTUAL, ACTUALIZAR_TAREA, LIMPIAR_TAREA } from '../../types';
 
 const TareaState = props => {
     const initialState = {
@@ -47,7 +47,7 @@ const TareaState = props => {
             // tarea.id = uuid();
             dispatch({
                 type: AGREGAR_TAREA,
-                payload: tarea
+                payload: resultado.data.tarea
             })
 
         } catch (error) {
