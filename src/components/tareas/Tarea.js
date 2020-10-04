@@ -54,8 +54,8 @@ const Tarea = ({ tarea }) => {
                     className="btn btn-secundario"
                     onClick={
                         () => {
-                            eliminarTarea(tarea.id)
-                            obtenerTareas(proyecto[0].id) // o tambien se puede utilizar array destructuring
+                            eliminarTarea(tarea._id, proyecto[0]._id)
+                            obtenerTareas(proyecto[0]._id) // o tambien se puede utilizar array destructuring
                         }
                     }
                 >Eliminar</button>
