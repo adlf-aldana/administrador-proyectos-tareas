@@ -9,14 +9,14 @@ const Tarea = ({ tarea }) => {
 
     // Obtener la funcion del context de tarea
     const tareasContext = useContext(TareaContext);
-    const { eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareasContext;
+    const { eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActual } = tareasContext;
 
     const estadoTarea = tarea => {
         if (tarea.estado)
             tarea.estado = false
         else
             tarea.estado = true
-        cambiarEstadoTarea(tarea);
+        actualizarTarea(tarea);
     }
 
     return (
@@ -54,8 +54,8 @@ const Tarea = ({ tarea }) => {
                     className="btn btn-secundario"
                     onClick={
                         () => {
-                            eliminarTarea(tarea.id)
-                            obtenerTareas(proyecto[0].id) // o tambien se puede utilizar array destructuring
+                            eliminarTarea(tarea._id, proyecto[0]._id)
+                            obtenerTareas(proyecto[0]._id) // o tambien se puede utilizar array destructuring
                         }
                     }
                 >Eliminar</button>
